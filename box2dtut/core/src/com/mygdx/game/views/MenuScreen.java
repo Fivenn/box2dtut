@@ -25,7 +25,9 @@ public class MenuScreen implements Screen {
     public MenuScreen(Box2DTutorial box2DTutorial) {
         parent = box2DTutorial;
         stage = new Stage(new ScreenViewport());
-        skin = new Skin(Gdx.files.internal("skin/pixthulhu-ui.json"));
+        parent.assMan.queueAddSkin();
+        parent.assMan.manager.finishLoading();
+        skin = parent.assMan.manager.get("skin/pixthulhu-ui.json");
         newGame  = new TextButton("New Game", skin);
         preferences = new TextButton("Preferences", skin);
         exit = new TextButton("Exit", skin);
